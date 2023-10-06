@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <div>
-      <h1>This is bad</h1>
+      <button className="btn">Submit</button>
     </div>
   );
 }
