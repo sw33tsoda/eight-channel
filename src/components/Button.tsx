@@ -14,7 +14,7 @@ export class Button extends Component<ButtonProps> {
         const {
             variant = 'primary',
             additionalClasses,
-            ...rest
+            ...restProps
         } = this.props;
 
         const classNames = clsx([{
@@ -25,7 +25,7 @@ export class Button extends Component<ButtonProps> {
         }], additionalClasses);
 
         return (
-            <button className={classNames} {...rest}/>
+            <button className={classNames} {...restProps} />
         );
     }
 }

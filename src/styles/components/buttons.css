@@ -4,40 +4,83 @@ body {
 
 /* General */
 .btn {
-    @apply px-1 py-0 rounded text-sm;
+    @apply
+        px-1
+        py-0
+        rounded
+        text-sm;
 }
 
 @screen sm {
     .btn {
-        @apply px-2 py-1 font-medium;
+        @apply
+            px-2
+            py-1
+            font-medium;
     }
 }
 
 /* Primary */
 .btn-primary {
-    @apply bg-rose-600 text-slate-100 shadow-md border-2 border-rose-600;
+    @apply
+        bg-rose-600
+        text-slate-100
+        shadow-md
+        border-2
+        border-rose-600;
 }
 
 .btn-primary:hover {
-    @apply bg-rose-500 border-rose-500;
+    @apply
+        bg-rose-500
+        border-rose-500;
+}
+
+.btn-primary:disabled {
+    @apply
+        !bg-slate-400
+        !border-slate-400
 }
 
 
 /* Secondary */
 .btn-secondary {
-    @apply text-rose-600 border-2 border-transparent;
+    @apply 
+        text-rose-600
+        bg-slate-50
+        border-2
+        border-transparent
+        shadow-md;
 }
 
 .btn-secondary:hover {
     @apply text-rose-500;
 }
 
+.btn-secondary:disabled {
+    @apply
+        !text-slate-400
+}
+
 
 /* Outlined */
 .btn-outlined {
-    @apply border-2 border-rose-600 text-rose-600;
+    @apply
+        border-2
+        border-rose-600
+        text-rose-600;
 }
 
 .btn-outlined:hover {
-    @apply border-rose-500 text-rose-500 border-dashed;
+    @apply
+        border-rose-500
+        text-rose-500
+        border-dashed;
+}
+
+.btn-outlined:disabled {
+    @apply
+        !text-slate-400
+        !border-slate-400
+        !border-solid
 }

@@ -1,0 +1,34 @@
+/* General */
+.input {
+    @apply
+        px-1
+        py-0
+        rounded
+        text-sm;
+}
+
+@screen sm {
+    .input {
+        @apply
+            px-2
+            py-1
+            font-medium
+            outline-none;
+    }
+}
+
+/* Primary */
+.input-primary {
+    @apply
+        bg-slate-50
+        text-black
+        shadow-md
+        border-2
+        border-slate-50;
+}
+
+.input-primary:hover {
+    @apply
+        bg-rose-50
+        border-rose-50;
+}
