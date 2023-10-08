@@ -1,1 +1,43 @@
-/* components/buttons.css */
+body {
+    padding: 100px
+}
+
+/* General */
+.btn {
+    @apply px-1 py-0 rounded text-sm;
+}
+
+@screen sm {
+    .btn {
+        @apply px-2 py-1 font-medium;
+    }
+}
+
+/* Primary */
+.btn-primary {
+    @apply bg-rose-600 text-slate-100 shadow-md border-2 border-rose-600;
+}
+
+.btn-primary:hover {
+    @apply bg-rose-500 border-rose-500;
+}
+
+
+/* Secondary */
+.btn-secondary {
+    @apply text-rose-600 border-2 border-transparent;
+}
+
+.btn-secondary:hover {
+    @apply text-rose-500;
+}
+
+
+/* Outlined */
+.btn-outlined {
+    @apply border-2 border-rose-600 text-rose-600;
+}
+
+.btn-outlined:hover {
+    @apply border-rose-500 text-rose-500 border-dashed;
+}
