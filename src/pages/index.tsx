@@ -1,7 +1,6 @@
 import { Button } from '@/components';
 import { Input } from '@/components';
 import CommonModal from '@/components/CommonModal';
-import Modal from '@/components/Modal';
 import { useEffect, useState } from 'react';
 
 export default function Home() {
