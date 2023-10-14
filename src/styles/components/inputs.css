@@ -22,13 +22,25 @@
     @apply
         bg-slate-50
         text-black
-        shadow-md
-        border-2
-        border-slate-50;
+        shadow-inner
 }
 
 .input-primary:hover {
     @apply
         bg-rose-50
         border-rose-50;
+}
+
+/* Has error */
+
+.input-error {
+    @apply
+        shadow-rose-500
+}
+
+/* Has warning */
+
+.input-warning {
+    @apply
+        shadow-yellow-500
 }
