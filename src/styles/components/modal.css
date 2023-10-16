@@ -51,11 +51,6 @@
         @apply
             w-8/12
     }
-
-    .modal-common-header-title {
-        @apply
-            text-base
-    }
 }
 
 @screen md {

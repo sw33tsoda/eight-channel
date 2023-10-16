@@ -75,7 +75,6 @@ body {
     @apply
         border-rose-500
         text-rose-500
-        border-dashed;
 }
 
 .btn-outlined:disabled {

@@ -4,11 +4,11 @@ import { Component, ReactNode } from 'react';
 import Modal from './Modal';
 
 export interface CommonModalProps {
-    headerTitle?: string;
-    headerRightContent?: JSX.Element | ReactNode;
-    bodyContent?: JSX.Element | ReactNode;
-    footerLeftContent?: JSX.Element | ReactNode;
-    footerRightContent?: JSX.Element | ReactNode;
+    readonly headerTitle?: string;
+    readonly headerRightContent?: JSX.Element | ReactNode;
+    readonly bodyContent?: JSX.Element | ReactNode;
+    readonly footerLeftContent?: JSX.Element | ReactNode;
+    readonly footerRightContent?: JSX.Element | ReactNode;
 }
 
 export default class CommonModal extends Component<CommonModalProps> {
