@@ -1,0 +1,6 @@
+.confirmation-modal-header {
+    @apply
+        flex
+        flex-row
+        justify-between
+}

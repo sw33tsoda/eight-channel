@@ -1,6 +1,6 @@
 import { Button } from '@/components';
 import { Input } from '@/components';
-import CommonModal from '@/components/CommonModal';
+import { ConfirmationModal } from '@/components/ConfirmationModal';
 import { useEffect, useState } from 'react';
 
 export default function Home() {
@@ -63,24 +63,17 @@ export default function Home() {
 
       <h1>Modal</h1>
       <br />
-      {displayModal && (
-        <CommonModal
-          headerTitle="Do you want to cancel this request?"
-          headerRightContent={<Button variant="secondary">Cancel</Button>}
-          bodyContent={<p>body</p>}
-          footerLeftContent={
-            <p>This action will not be reverted once its done</p>
-          }
-          footerRightContent={
-            <>
-              <Button variant="primary">Accept</Button>
-              <Button variant="outlined">Cancel</Button>
-            </>
-          }
-        />
-      )}
+      <h2>Confirmation Modal</h2>
+
+      {displayModal && <ConfirmationModal
+        titleText='Do you want to accept?'
+        description='Nulla eget tortor est. Duis elit eros, condimentum ac dui a, imperdiet consequat orci. Vivamus sit amet ligula quis mi dictum eleifend. Cras quis tincidunt justo.'
+        primaryButtonText='Accept'
+        secondaryButtonText='Cancel'
+      />}
       <br />
       <br />
+
     </div>
   );
 }

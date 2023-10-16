@@ -1,16 +1,16 @@
 import { Component, ReactNode } from 'react';
-import clsx from 'clsx';
+import clsx, { ClassValue } from 'clsx';
 
-export interface PaperProps {
+export interface IPaperProps {
     readonly children: ReactNode,
-    readonly additionalClasses?: Record<string, boolean> | Array<string>;
+    readonly additionalClasses?: ClassValue;
 }
 
-export class Paper extends Component<PaperProps> {
+export class Paper extends Component<IPaperProps> {
     render(): JSX.Element {
         const {
             children,
-            additionalClasses
+            additionalClasses = ''
         } = this.props;
 
         const classNames = clsx('paper', 'shadow-lg', additionalClasses);

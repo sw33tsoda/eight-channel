@@ -2,22 +2,22 @@ import { InputHTMLAttributes, Component } from 'react';
 import { clsx } from 'clsx';
 
 // Types
-import type { InputVariant } from '@/types';
+import type { AdditionalClasses, InputVariant } from '@/types';
 
-export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
     readonly variant?: InputVariant;
     readonly hasError?: boolean;
     readonly hasWarning?: boolean;
-    readonly additionalClasses?: Record<string, boolean> | Array<string>
+    readonly additionalClasses?: AdditionalClasses
 }
 
-export class Input extends Component<InputProps> {
+export class Input extends Component<IInputProps> {
     render(): JSX.Element {
         const {
             variant = 'primary',
             hasError = false,
             hasWarning = false,
-            additionalClasses,
+            additionalClasses = '',
             ...restProps
         } = this.props;
 

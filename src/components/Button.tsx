@@ -2,18 +2,18 @@ import { ButtonHTMLAttributes, Component } from 'react';
 import { clsx } from 'clsx';
 
 // Types
-import type { ButtonVariant } from '@/types';
+import type { AdditionalClasses, ButtonVariant } from '@/types';
 
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     readonly variant?: ButtonVariant;
-    readonly additionalClasses?: Record<string, boolean> | Array<string>
+    readonly additionalClasses?: AdditionalClasses
 }
 
-export class Button extends Component<ButtonProps> {
+export class Button extends Component<IButtonProps> {
     render(): JSX.Element {
         const {
             variant = 'primary',
-            additionalClasses,
+            additionalClasses = '',
             ...restProps
         } = this.props;
 
