@@ -8,7 +8,7 @@ export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
     readonly variant?: InputVariant;
     readonly hasError?: boolean;
     readonly hasWarning?: boolean;
-    readonly additionalClasses?: AdditionalClasses
+    readonly additionalClasses?: AdditionalClasses;
 }
 
 export class Input extends Component<IInputProps> {
@@ -21,16 +21,19 @@ export class Input extends Component<IInputProps> {
             ...restProps
         } = this.props;
 
-        const classNames = clsx([{
-            'input': true,
-            'input-primary': variant === 'primary',
-            'input-secondary': variant === 'secondary',
-            'input-error': hasError,
-            'input-warning': hasWarning
-        }], additionalClasses);
-
-        return (
-            <input className={classNames} {...restProps} />
+        const classNames = clsx(
+            [
+                {
+                    input: true,
+                    'input-primary': variant === 'primary',
+                    'input-secondary': variant === 'secondary',
+                    'input-error': hasError,
+                    'input-warning': hasWarning,
+                },
+            ],
+            additionalClasses,
         );
+
+        return <input className={classNames} {...restProps} />;
     }
 }

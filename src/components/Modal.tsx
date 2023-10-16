@@ -14,24 +14,17 @@ export interface IModalProps {
 
 export class Modal extends Component<IModalProps> {
     render() {
-        const {
-            headerContent,
-            bodyContent,
-            footerContent,
-            additionalClasses = ''
-        } = this.props;
+        const { headerContent, bodyContent, footerContent, additionalClasses = '' } = this.props;
 
-        return (
-            createPortal(
-                <div className='backdrop backdrop-blur-sm'>
-                    <Paper additionalClasses={['modal', additionalClasses]}>
-                        {headerContent}
-                        {bodyContent}
-                        {footerContent}
-                    </Paper>
-                </div>,
-                document.body
-            )
+        return createPortal(
+            <div className="backdrop backdrop-blur-sm">
+                <Paper additionalClasses={['modal', additionalClasses]}>
+                    {headerContent}
+                    {bodyContent}
+                    {footerContent}
+                </Paper>
+            </div>,
+            document.body,
         );
     }
 }

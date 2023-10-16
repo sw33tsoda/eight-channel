@@ -19,19 +19,13 @@ export interface IRenderBodyContentParams extends Pick<IConfirmationModalProps, 
 export interface IRenderFooterContentParams
     extends Pick<
         IConfirmationModalProps,
-        'onClickPrimaryButton' |
-        'onClickSecondaryButton' |
-        'primaryButtonText' |
-        'secondaryButtonText'
+        'onClickPrimaryButton' | 'onClickSecondaryButton' | 'primaryButtonText' | 'secondaryButtonText'
     > {}
 
 export class ConfirmationModal extends Component<IConfirmationModalProps> {
-    renderHeaderContent = ({
-        titleText,
-        onClickClose
-    }: IRenderHeaderContentParams) => {
+    renderHeaderContent = ({ titleText, onClickClose }: IRenderHeaderContentParams) => {
         return (
-            <div className='confirmation-modal-header'>
+            <div className="confirmation-modal-header">
                 <div className="confirmation-modal-header-left">
                     <h1>{titleText}</h1>
                 </div>
@@ -42,28 +36,22 @@ export class ConfirmationModal extends Component<IConfirmationModalProps> {
         );
     };
 
-    renderBodyContent = ({
-        description
-    }: IRenderBodyContentParams) => {
-        return (
-            <div className="confirmation-modal-body">
-                {description}
-            </div>
-        );
+    renderBodyContent = ({ description }: IRenderBodyContentParams) => {
+        return <div className="confirmation-modal-body">{description}</div>;
     };
 
     renderFooterContent = ({
         onClickPrimaryButton,
         onClickSecondaryButton,
         primaryButtonText,
-        secondaryButtonText
+        secondaryButtonText,
     }: IRenderFooterContentParams) => {
         return (
             <div className="confirmation-modal-footer">
-                <Button variant='primary' onClick={onClickPrimaryButton}>
+                <Button variant="primary" onClick={onClickPrimaryButton}>
                     {primaryButtonText}
                 </Button>
-                <Button variant='outlined' onClick={onClickSecondaryButton}>
+                <Button variant="outlined" onClick={onClickSecondaryButton}>
                     {secondaryButtonText}
                 </Button>
             </div>
