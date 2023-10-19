@@ -4,3 +4,20 @@
         flex-row
         justify-between
 }
+
+.confirmation-modal-header .confirmation-modal-header-left h1 {
+    @apply
+        font-bold
+}
+
+.confirmation-modal-body {
+    @apply
+        text-sm
+}
+
+.confirmation-modal-footer {
+    @apply
+        flex
+        justify-end
+        gap-1
+}

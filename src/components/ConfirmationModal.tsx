@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { FaXmark } from 'react-icons/fa6';
 
 // Components
-import { Button, Modal } from '.';
+import { Button, IconButton, Modal } from '.';
 
 export interface IConfirmationModalProps {
     readonly primaryButtonText: string;
@@ -23,18 +23,16 @@ export interface IRenderFooterContentParams
     > {}
 
 export class ConfirmationModal extends Component<IConfirmationModalProps> {
-    renderHeaderContent = ({ titleText, onClickClose }: IRenderHeaderContentParams) => {
-        return (
-            <div className="confirmation-modal-header">
-                <div className="confirmation-modal-header-left">
-                    <h1>{titleText}</h1>
-                </div>
-                <div className="confirmation-modal-header-right">
-                    <FaXmark onClick={onClickClose} />
-                </div>
+    renderHeaderContent = ({ titleText, onClickClose }: IRenderHeaderContentParams) => (
+        <div className="confirmation-modal-header">
+            <div className="confirmation-modal-header-left">
+                <h1>{titleText}</h1>
             </div>
-        );
-    };
+            <div className="confirmation-modal-header-right">
+                <IconButton component={FaXmark} />
+            </div>
+        </div>
+    );
 
     renderBodyContent = ({ description }: IRenderBodyContentParams) => {
         return <div className="confirmation-modal-body">{description}</div>;
@@ -45,18 +43,16 @@ export class ConfirmationModal extends Component<IConfirmationModalProps> {
         onClickSecondaryButton,
         primaryButtonText,
         secondaryButtonText,
-    }: IRenderFooterContentParams) => {
-        return (
-            <div className="confirmation-modal-footer">
-                <Button variant="primary" onClick={onClickPrimaryButton}>
-                    {primaryButtonText}
-                </Button>
-                <Button variant="outlined" onClick={onClickSecondaryButton}>
-                    {secondaryButtonText}
-                </Button>
-            </div>
-        );
-    };
+    }: IRenderFooterContentParams) => (
+        <div className="confirmation-modal-footer">
+            <Button variant="primary" onClick={onClickPrimaryButton}>
+                {primaryButtonText}
+            </Button>
+            <Button variant="outlined" onClick={onClickSecondaryButton}>
+                {secondaryButtonText}
+            </Button>
+        </div>
+    );
 
     render() {
         const {
