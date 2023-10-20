@@ -65,14 +65,14 @@ export default function Home() {
             <br />
             <h2>Confirmation Modal</h2>
 
-            {displayModal && (
+            {/* {displayModal && (
                 <ConfirmationModal
                     titleText="Do you want to accept?"
                     description="Nulla eget tortor est. Duis elit eros, condimentum ac dui a, imperdiet consequat orci. Vivamus sit amet ligula quis mi dictum eleifend. Cras quis tincidunt justo."
                     primaryButtonText="Accept"
                     secondaryButtonText="Cancel"
                 />
-            )}
+            )} */}
             <br />
             <br />
         </div>
