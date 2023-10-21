@@ -22,8 +22,16 @@ export interface IRenderFooterContentParams
         'onClickPrimaryButton' | 'onClickSecondaryButton' | 'primaryButtonText' | 'secondaryButtonText'
     > {}
 
-export class ConfirmationModal extends Component<IConfirmationModalProps> {
-    renderHeaderContent = ({ titleText, onClickClose }: IRenderHeaderContentParams) => (
+export const ConfirmationModal = ({
+    primaryButtonText,
+    secondaryButtonText,
+    onClickPrimaryButton,
+    onClickSecondaryButton,
+    onClickClose,
+    titleText = '',
+    description = '',
+}: IConfirmationModalProps) => {
+    const renderHeaderContent = ({ titleText, onClickClose }: IRenderHeaderContentParams) => (
         <div className="confirmation-modal-header">
             <div className="confirmation-modal-header-left">
                 <h1>{titleText}</h1>
@@ -34,11 +42,11 @@ export class ConfirmationModal extends Component<IConfirmationModalProps> {
         </div>
     );
 
-    renderBodyContent = ({ description }: IRenderBodyContentParams) => {
+    const renderBodyContent = ({ description }: IRenderBodyContentParams) => {
         return <div className="confirmation-modal-body">{description}</div>;
     };
 
-    renderFooterContent = ({
+    const renderFooterContent = ({
         onClickPrimaryButton,
         onClickSecondaryButton,
         primaryButtonText,
@@ -54,40 +62,28 @@ export class ConfirmationModal extends Component<IConfirmationModalProps> {
         </div>
     );
 
-    render() {
-        const {
-            primaryButtonText,
-            secondaryButtonText,
-            onClickPrimaryButton,
-            onClickSecondaryButton,
-            onClickClose,
-            titleText = '',
-            description = '',
-        } = this.props;
+    const renderHeaderContentParams: IRenderHeaderContentParams = {
+        titleText,
+        onClickClose,
+    };
 
-        const renderHeaderContentParams: IRenderHeaderContentParams = {
-            titleText,
-            onClickClose,
-        };
+    const renderBodyContentParams: IRenderBodyContentParams = {
+        description,
+    };
 
-        const renderBodyContentParams: IRenderBodyContentParams = {
-            description,
-        };
+    const renderFooterContentParams: IRenderFooterContentParams = {
+        onClickPrimaryButton,
+        onClickSecondaryButton,
+        primaryButtonText,
+        secondaryButtonText,
+    };
 
-        const renderFooterContentParams: IRenderFooterContentParams = {
-            onClickPrimaryButton,
-            onClickSecondaryButton,
-            primaryButtonText,
-            secondaryButtonText,
-        };
-
-        return (
-            <Modal
-                additionalClasses={['confirmation-modal']}
-                headerContent={this.renderHeaderContent(renderHeaderContentParams)}
-                bodyContent={this.renderBodyContent(renderBodyContentParams)}
-                footerContent={this.renderFooterContent(renderFooterContentParams)}
-            />
-        );
-    }
-}
+    return (
+        <Modal
+            additionalClasses={['confirmation-modal']}
+            headerContent={renderHeaderContent(renderHeaderContentParams)}
+            bodyContent={renderBodyContent(renderBodyContentParams)}
+            footerContent={renderFooterContent(renderFooterContentParams)}
+        />
+    );
+};

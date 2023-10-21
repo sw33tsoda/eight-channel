@@ -6,12 +6,8 @@ export interface IPaperProps {
     readonly additionalClasses?: ClassValue;
 }
 
-export class Paper extends Component<IPaperProps> {
-    render(): JSX.Element {
-        const { children, additionalClasses = '' } = this.props;
+export const Paper = ({ children, additionalClasses = '' }: IPaperProps) => {
+    const classNames = clsx('paper', 'shadow-lg', additionalClasses);
 
-        const classNames = clsx('paper', 'shadow-lg', additionalClasses);
-
-        return <div className={classNames}>{children}</div>;
-    }
-}
+    return <div className={classNames}>{children}</div>;
+};

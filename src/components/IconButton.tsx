@@ -8,17 +8,14 @@ export interface IIconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement
     additionalClasses?: ClassValue;
 }
 
-export class IconButton extends Component<IIconButtonProps> {
-    render(): JSX.Element {
-        const { component, additionalClasses, sideText, ...restProps } = this.props;
-        const IconComponent = component;
-        const classNames = clsx('icon-button', additionalClasses);
+export const IconButton = ({ component, additionalClasses, sideText, ...restProps }: IIconButtonProps) => {
+    const IconComponent = component;
+    const classNames = clsx('icon-button', additionalClasses);
 
-        return (
-            <button className={classNames} {...restProps}>
-                <IconComponent />
-                {sideText && sideText}
-            </button>
-        );
-    }
-}
+    return (
+        <button className={classNames} {...restProps}>
+            <IconComponent />
+            {sideText && sideText}
+        </button>
+    );
+};

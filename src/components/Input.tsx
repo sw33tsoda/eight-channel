@@ -1,39 +1,35 @@
 import { InputHTMLAttributes, Component } from 'react';
-import { clsx } from 'clsx';
+import { ClassValue, clsx } from 'clsx';
 
 // Types
-import type { AdditionalClasses, InputVariant } from '@/types';
+import type { InputVariant } from '@/types';
 
 export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
     readonly variant?: InputVariant;
     readonly hasError?: boolean;
     readonly hasWarning?: boolean;
-    readonly additionalClasses?: AdditionalClasses;
+    readonly additionalClasses?: ClassValue;
 }
 
-export class Input extends Component<IInputProps> {
-    render(): JSX.Element {
-        const {
-            variant = 'primary',
-            hasError = false,
-            hasWarning = false,
-            additionalClasses = '',
-            ...restProps
-        } = this.props;
+export const Input = ({
+    variant = 'primary',
+    hasError = false,
+    hasWarning = false,
+    additionalClasses = '',
+    ...restProps
+}: IInputProps) => {
+    const classNames = clsx(
+        [
+            {
+                input: true,
+                'input-primary': variant === 'primary',
+                'input-secondary': variant === 'secondary',
+                'input-error': hasError,
+                'input-warning': hasWarning,
+            },
+        ],
+        additionalClasses,
+    );
 
-        const classNames = clsx(
-            [
-                {
-                    input: true,
-                    'input-primary': variant === 'primary',
-                    'input-secondary': variant === 'secondary',
-                    'input-error': hasError,
-                    'input-warning': hasWarning,
-                },
-            ],
-            additionalClasses,
-        );
-
-        return <input className={classNames} {...restProps} />;
-    }
-}
+    return <input className={classNames} {...restProps} />;
+};

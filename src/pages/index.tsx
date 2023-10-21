@@ -1,6 +1,5 @@
 import { Button } from '@/components';
 import { Input } from '@/components';
-import { ConfirmationModal } from '@/components/ConfirmationModal';
 import { useEffect, useState } from 'react';
 
 export default function Home() {
