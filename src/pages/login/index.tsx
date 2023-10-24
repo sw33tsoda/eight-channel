@@ -1,6 +1,15 @@
+import type { ReactNode } from 'react';
+
+// Components
 import { Input } from '@/components';
 
-export default function Login() {
+// Layouts
+import { AuthenticationLayout } from '@/layouts';
+
+// Types
+import type { NextPageWithLayout } from '../_app';
+
+const Login: NextPageWithLayout = () => {
     return (
         <div className="login-page">
             <h1 className="heading">Login</h1>
@@ -16,4 +25,14 @@ export default function Login() {
             </form>
         </div>
     );
-}
+};
+
+Login.getCustomLayout = (page: ReactNode) => {
+    return (
+        <AuthenticationLayout title="Login" subTitle="Welcome to Eight-Channel.">
+            {page}
+        </AuthenticationLayout>
+    );
+};
+
+export default Login;
