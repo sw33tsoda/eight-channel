@@ -1,13 +1,10 @@
 import { Button } from '@/components';
 import { Input } from '@/components';
-import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 export default function Home() {
-    const [displayModal, setDisplayModal] = useState<boolean>(false);
-
-    useEffect(() => {
-        setDisplayModal(true);
-    }, []);
+    // const router = useRouter();
 
     return (
         <div>
@@ -74,6 +71,8 @@ export default function Home() {
             )} */}
             <br />
             <br />
+
+            <Link href="/login">Login</Link>
         </div>
     );
 }

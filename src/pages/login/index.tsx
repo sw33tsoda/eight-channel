@@ -9,7 +9,9 @@ import { AuthenticationLayout } from '@/layouts';
 // Types
 import type { NextPageWithLayout } from '../_app';
 
-const Login: NextPageWithLayout = () => {
+const Login: NextPageWithLayout = (props) => {
+    console.log(props);
+
     return (
         <div className="login-page">
             <h1 className="heading">Login</h1>
@@ -25,6 +27,12 @@ const Login: NextPageWithLayout = () => {
             </form>
         </div>
     );
+};
+
+Login.getInitialProps = ({ res, err }) => {
+    const data = { pie: 'hello' };
+
+    return { data };
 };
 
 Login.getCustomLayout = (page: ReactNode) => {
